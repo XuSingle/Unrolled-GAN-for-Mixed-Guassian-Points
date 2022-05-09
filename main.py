@@ -80,7 +80,7 @@ def d_loop(G, D, d_optimizer, criterion, iteration):
 
     #  1B: Train D on fake
     d_gen_input = dis.normal.Normal(torch.zeros(256), torch.ones(256)).sample(
-            sample_shape=torch.tensor([512])).cuda()
+            sample_shape=torch.tensor([2500])).cuda()
     with torch.no_grad():
         d_fake_data = G(d_gen_input)
     d_fake_decision = D(d_fake_data)
@@ -112,7 +112,7 @@ def d_unrolled_loop(G, D, d_optimizer, criterion, d_gen_input=None):
     #  1B: Train D on fake
     if d_gen_input is None:
         d_gen_input = dis.normal.Normal(torch.zeros(256), torch.ones(256)).sample(
-            sample_shape=torch.tensor([512])).cuda()
+            sample_shape=torch.tensor([2500])).cuda()
     with torch.no_grad():
         d_fake_data = G(d_gen_input)
     # d_fake_data = G(d_gen_input)
@@ -141,7 +141,7 @@ def d_unrolled_loop_higher(G, D, d_optimizer, criterion, d_gen_input=None):
     #  1B: Train D on fake
     if d_gen_input is None:
         d_gen_input = dis.normal.Normal(torch.zeros(256), torch.ones(256)).sample(
-            sample_shape=torch.tensor([512])).cuda()
+            sample_shape=torch.tensor([2500])).cuda()
 
     d_fake_data = G(d_gen_input)
     d_fake_decision = D(d_fake_data)
@@ -160,7 +160,7 @@ def g_loop(G, D, g_optimizer, d_optimizer, criterion):
     d_optimizer.zero_grad()
 
     gen_input = dis.normal.Normal(torch.zeros(256), torch.ones(256)).sample(
-            sample_shape=torch.tensor([512])).cuda()
+            sample_shape=torch.tensor([2500])).cuda()
     if config.unrolled_steps > 0:
         if config.use_higher:
             backup = copy.deepcopy(D)
@@ -207,7 +207,7 @@ def g_loop(G, D, g_optimizer, d_optimizer, criterion):
 def g_sample():
     with torch.no_grad():
         gen_input = dis.normal.Normal(torch.zeros(256), torch.ones(256)).sample(
-            sample_shape=torch.tensor([512])).cuda()
+            sample_shape=torch.tensor([2500])).cuda()
         g_fake_data = G(gen_input)
         return g_fake_data.cpu().numpy()
 
@@ -293,7 +293,7 @@ if __name__ == '__main__':
                 d_real_data = sample_grid(512).cuda()
 
             d_gen_input = dis.normal.Normal(torch.zeros(256), torch.ones(256)).sample(
-                sample_shape=torch.tensor([512])).cuda()
+                sample_shape=torch.tensor([2500])).cuda()
             with torch.no_grad():
                 d_fake_data = G(d_gen_input)
             Fake = d_fake_data.to('cpu').detach().numpy()
