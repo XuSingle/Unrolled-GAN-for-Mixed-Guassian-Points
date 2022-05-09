@@ -10,10 +10,13 @@ Several differences for
 
 
 
-# Please follow these steps to run Unrolled GAN
+### Please follow these steps to run Unrolled GAN
 ```
 pip install -r requirements.txt
 !python main.py --config yes_higher_unroll_10 --model 0   ##for 2D Ring 
 !python main.py --config yes_higher_unroll_10 --model 1   ##for 2D Grid
 ```
+
+
+
 
