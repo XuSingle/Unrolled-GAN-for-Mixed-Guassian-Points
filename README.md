@@ -1,7 +1,7 @@
 # Unrolled-GAN-for-Mixed-Guassian-Points
 This repository implements UNROLLED GENERATIVE ADVERSARIAL NETWORKS (https://arxiv.org/pdf/1611.02163.pdf).
 
-Main codes from https://github.com/mk-minchul/unroll_gan
+Main codes from https://github.com/mk-minchul/unroll_gan, you may find more detail about these codes here.
 
 Several differences for 
 
