@@ -286,7 +286,7 @@ if __name__ == '__main__':
             print(d_real_loss, d_fake_loss, g_loss)
         
         #### Plot
-        if it % 300 == 0 or it == config.num_iterations -1 :
+        if it % 5000 == 0 or it == config.num_iterations -1 :
             if args.model == 0:
                 d_real_data = sample_ring(512).cuda()
             else:
